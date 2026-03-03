@@ -1,0 +1,22 @@
+// Smooth scroll to details
+const viewBtn = document.getElementById('viewDetails');
+const detailsSection = document.getElementById('details');
+
+viewBtn.addEventListener('click', () => {
+    detailsSection.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Scroll animation for gallery
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    galleryItems.forEach(item => {
+        const itemTop = item.getBoundingClientRect().top;
+
+        if (itemTop < triggerBottom) {
+            item.classList.add('show');
+        }
+    });
+});
